@@ -135,6 +135,26 @@ if (isset($_GET['modulo'])) {$modulo = $_GET['modulo'];} else { $modulo = "dashb
   </div>
   <!-- /.content-wrapper -->
 
+   <!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper">
+
+<section class="content">
+<?php
+if(isset($_GET[“modulo”])){ $modulo = $_GET[“modulo”]} else { $modulo = false;}
+if(isset($_GET[“acao”])){ $acao= $_GET[“acao”]} else { $acao= listar;}
+if($modulo){
+if(file_exists(“modulos/”.$modulo.”/”.$acao.”.php”)){
+include(“modulos/”.$modulo.”/”.$acao.”.php”);
+}
+}else{
+echo “Página Solicitada não Existe”;
+}
+?>
+</section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.13
